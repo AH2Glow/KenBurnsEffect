@@ -24,6 +24,7 @@
   right: 1.5rem;
   background-color: rgba(100, 100, 100, 0.3);
   outline: rgba(100, 100, 100, 0.3) solid 1rem;
+  z-index: 2;
 }
 
 .img-container img {
@@ -33,7 +34,6 @@
   object-fit: cover;
   object-position: bottom;
   z-index: -1;
-  /* display: none; */
 }
 
 img.previous {
