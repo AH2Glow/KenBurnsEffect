@@ -6,14 +6,19 @@ let isRunning = true;
 const showNextImage = () => {
   const images = imgContainer.querySelectorAll("img");
 
-  const currentIndex = Array.from(images).findIndex((img) =>
+  const cur = Array.from(images).findIndex((img) =>
     img.classList.contains("show")
   );
 
-  const nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+  const next = cur === images.length - 1 ? 0 : cur + 1;
+  const prev = cur === 0 ? images.length - 1 : cur - 1;
 
-  images[currentIndex].classList.remove("show");
-  images[nextIndex].classList.add("show");
+  images[prev].classList.remove("previous");
+
+  images[cur].classList.remove("show");
+  images[cur].classList.add("previous");
+
+  images[next].classList.add("show");
 };
 
 let interval = setInterval(showNextImage, timer);
@@ -34,3 +39,7 @@ imgContainer.addEventListener("click", function () {
 
   togglePause();
 });
+
+// imgContainer.addEventListener("click", function () {
+//   showNextImage();
+// });
